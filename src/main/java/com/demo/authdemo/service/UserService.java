@@ -6,6 +6,7 @@ import com.demo.authdemo.requests.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +20,11 @@ public class UserService {
         return optUser.isPresent();
     }
 
-    public void createUser(User user){
+    public void createUser(User user) {
         userRepository.save(user);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
